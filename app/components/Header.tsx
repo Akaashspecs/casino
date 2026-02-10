@@ -22,8 +22,7 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-                     bg-black/30 backdrop-blur-3xl border-b border-white/10 mx-5 md:mx-30 mt-5 rounded-full
-                  
+                     ${isScrolled ? "bg-black/30 backdrop-blur-3xl border-b border-white/10" : "bg-transparent border-b border-transparent"}
                 `}
         >
             <div className="container mx-auto px-6 flex items-center justify-between pointer-events-auto relative">
@@ -44,7 +43,7 @@ export default function Header() {
                 </Link>
 
                 <nav className="hidden md:flex space-x-8 py-4 ">
-                    {["Home", "Hotel", "Restaurant", "Events"].map((item) => (
+                    {["Home", "Hotel", "Restaurant", "Events", "Gallery"].map((item) => (
                         <Link
                             key={item}
                             href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -71,7 +70,7 @@ export default function Header() {
                 {isMenuOpen && (
                     <div className="absolute top-full left-0 right-0 mt-2 bg-black/80 backdrop-blur-3xl rounded-3xl overflow-hidden md:hidden animate-in slide-in-from-top-2 fade-in duration-300 border border-white/10">
                         <nav className="flex flex-col py-4">
-                            {["Home", "Hotel", "Restaurant", "Events"].map((item) => (
+                            {["Home", "Hotel", "Restaurant", "Events", "Gallery"].map((item) => (
                                 <Link
                                     key={item}
                                     href={item === "Home" ? "/" : `/${item.toLowerCase()}`}

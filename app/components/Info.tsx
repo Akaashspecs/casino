@@ -70,13 +70,13 @@ const Info = () => {
                 <div className="w-full md:w-2/3 space-y-12">
                     <div ref={textRef1} className="text-xl md:text-2xl font-light text-gray-800 leading-relaxed border-l-4 border-black pl-6">
                         <p className="font-semibold">
-                            Rilassatevi e dedicate del tempo ai vostri cari al <strong>Caroline Hotel</strong>, un’oasi di pace a due passi dal lago di Lugano.
+                            Rilassatevi e dedicate del tempo ai vostri cari al <strong>Country House 'U Casino</strong>, un’oasi di pace a due passi dal lago di Lugano.
                         </p>
                     </div>
 
                     <div ref={textRef2} className="text-lg md:text-xl text-gray-600 leading-loose space-y-6">
                         <p>
-                            Situato nell'incantevole paesino di Brusimpiano, con la sua architettura romantica, è la destinazione ideale per coppie, famiglie e gruppi alla ricerca di relax, avventura e divertimento acquatico.
+                            Situato nell'incantevole paesino di Brusimpiano, con la sua architettura romantica, è la destinazione ideale per coppie, famiglie e gruppi alla ricerca di relax, avventura .
                         </p>
                         <p>
                             Il nostro giardino con piscina è il luogo perfetto per distendersi dopo una giornata intensa, prima di concedersi un sonno ristoratore nelle nostre confortevoli camere con vista lago.

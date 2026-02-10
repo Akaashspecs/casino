@@ -4,6 +4,8 @@ import MapSection from "./components/MapSection";
 import FoodDetail from "./components/FoodDetail";
 import Info from "./components/Info";
 import LandingFirst from "./components/LandingFirst";
+import About from "./components/About";
+import Reviews from "./components/Reviews";
 
 export default function Home() {
   return (
@@ -11,9 +13,11 @@ export default function Home() {
 <LandingFirst/>
 
       <Info />
+      <About/>
       <MapSection />
 
       <FoodDetail />
+      <Reviews/>
     </main>
   );
 }

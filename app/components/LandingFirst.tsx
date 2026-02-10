@@ -1,12 +1,14 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+
+"use client";
+
+import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Great_Vibes, Dancing_Script } from "next/font/google";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const greatVibes = Dancing_Script({
     weight: "700",
@@ -116,14 +118,40 @@ const LandingFirst = () => {
       {/* Canvas for Image Sequence */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-0 w-full h-full object-cover blur-[7px] brightness-[0.6]"
+        className="absolute inset-0 z-0 w-full h-full object-cover blur-[10px] brightness-[0.8]"
       />
 
       {/* Static Logo Overlay */}
     
 
-      <div className="relative z-10 w-full max-w-[1000px] flex flex-col items-center justify-center -space-y-10">
-        {/* First Line */}
+      {/* <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white pb-20 pointer-events-none">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                    className="flex flex-col items-center"
+                >
+                    <motion.h1 
+                        className="text-5xl md:text-8xl font-serif tracking-in-expand italic font-light"
+                        initial={{ opacity: 0, scale: 0.9, letterSpacing: "-0.05em" }}
+                        animate={{ opacity: 1, scale: 1, letterSpacing: "0em" }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                    >
+                        Hotel Caroline
+                    </motion.h1>
+                
+                     
+                </motion.div>
+            </div> */}
+      <div className="relative z-10 w-full max-w-[2000px] flex flex-col items-center justify-center -space-y-10">
+       
+       
+           <motion.p 
+                        className="mt-6 text-lg md:text-2xl font-light tracking-widest uppercase opacity-80"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 0.8, y: 0 }}
+                        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                    >
         <svg viewBox="0 0 1000 300" className="w-full h-auto overflow-visible ml-5">
           <defs>
             <path id="curve1" ref={path1Ref} />
@@ -139,8 +167,16 @@ const LandingFirst = () => {
     <tspan dx="140">House</tspan>
             </textPath>
           </text>
-        </svg>
-  
+        </svg></motion.p>
+        <div className="relative h-[400px] w-[600px] ">
+          <Image src={'/extra/logo-car.png'} alt="food" fill className="object-cover " />
+        </div>
+      <motion.p 
+                        className="mt-6 text-lg md:text-2xl font-light tracking-widest uppercase opacity-80"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 0.8, y: 0 }}
+                        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                    >
         {/* Second Line */}
         <svg viewBox="0 0 1000 300" className="w-full max-w-[1000px] ml-5">
           <defs>
@@ -174,6 +210,7 @@ const LandingFirst = () => {
             </textPath>
           </text>
         </svg>
+        </motion.p>
       </div>
     </div>
   );

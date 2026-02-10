@@ -67,7 +67,7 @@ export default function MapSection() {
     );
 
     return (
-        <section ref={containerRef} className="w-full py-24 relative overflow-hidden bg-stone-50 text-stone-800 border-b border-stone-300">
+        <section ref={containerRef} className="w-full py-24 relative overflow-hidden bg-stone-50 text-stone-800 ">
             {/* Elegant Background Pattern */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 pointer-events-none mix-blend-multiply"></div>
             

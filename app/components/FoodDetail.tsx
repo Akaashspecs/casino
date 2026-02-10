@@ -47,7 +47,7 @@ const FoodDetail = () => {
     );
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center text-center py-24 px-6 md:px-12 bg-white text-black">
+        <div ref={containerRef} className="flex flex-col items-center text-center py-24 px-6 md:px-12 bg-stone-50 text-black">
             <h3
                 ref={titleRef}
                 className={`${greatVibes.className} text-6xl md:text-7xl mb-12 text-black`}
@@ -81,7 +81,7 @@ const FoodDetail = () => {
             </a>
 
 
-            <div className="border-b border-gray-400 w-full mt-10"></div>
+            {/* <div className="border-b border-gray-400 w-full mt-10"></div>
             <div className="border-b border-gray-400 w-full mt-1"></div>
             <h3
                 ref={titleRef}
@@ -103,7 +103,7 @@ const FoodDetail = () => {
                 </div>
             </div>
             <div className="border-b border-gray-400 w-full mt-10"></div>
-            <div className="border-b border-gray-400 w-full mt-1"></div>
+            <div className="border-b border-gray-400 w-full mt-1"></div> */}
 
         </div>
     );

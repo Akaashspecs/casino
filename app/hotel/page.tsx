@@ -158,7 +158,8 @@ const Hotel = () => {
                 </h1>
                 <div ref={introTextRef} className="text-lg md:text-xl text-gray-600 leading-relaxed font-light space-y-6">
                     <p>
-                        Il Caroline Hotel è immerso nella natura e vi invita a rilassarvi dopo giornate intense.
+                  
+La Country House 'U Casino è immersa nella natura e vi invita a rilassarvi dopo una giornata intensa.
                     </p>
                     <p>
                         Offriamo un’accoglienza attenta e personalizzata, con la massima cura per ogni dettaglio.
