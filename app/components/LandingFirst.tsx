@@ -118,7 +118,7 @@ const LandingFirst = () => {
       {/* Canvas for Image Sequence */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-0 w-full h-full object-cover blur-[5px] brightness-[0.7] scale-101 saturate-150"
+        className="absolute inset-0 z-0 w-full h-full object-cover blur-[8px] brightness-[0.7] scale-[1.1] saturate-150"
       />
 
       {/* Static Logo Overlay */}
