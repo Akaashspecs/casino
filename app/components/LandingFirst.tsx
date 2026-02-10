@@ -82,7 +82,7 @@ const LandingFirst = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=400%", // Adjust scroll length for speed
+          end: "+=200%", // Adjust scroll length for speed
           scrub: true,
           pin: true,
           onUpdate: render, // Redraw on resize/scroll
@@ -113,12 +113,12 @@ const LandingFirst = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-black"
+      className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden "
     >
       {/* Canvas for Image Sequence */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-0 w-full h-full object-cover blur-[10px] brightness-[0.8]"
+        className="absolute inset-0 z-0 w-full h-full object-cover blur-[5px] brightness-[0.7] scale-101 saturate-150"
       />
 
       {/* Static Logo Overlay */}
@@ -143,7 +143,7 @@ const LandingFirst = () => {
                      
                 </motion.div>
             </div> */}
-      <div className="relative z-10 w-full max-w-[2000px] flex flex-col items-center justify-center -space-y-10">
+      <div className="relative z-10  max-w-[2000px] flex flex-col items-center justify-center -space-y-10  rounded-2xl w-fit">
        
        
            <motion.p 
@@ -155,6 +155,21 @@ const LandingFirst = () => {
         <svg viewBox="0 0 1000 300" className="w-full h-auto overflow-visible ml-5">
           <defs>
             <path id="curve1" ref={path1Ref} />
+             <filter
+              id="textShadow"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feDropShadow
+                dx="0"
+                dy="6"
+                stdDeviation="8"
+                floodColor="black"
+                floodOpacity="0.5"
+              />
+            </filter>
           </defs>
           <text
             ref={text1Ref}
@@ -168,7 +183,7 @@ const LandingFirst = () => {
             </textPath>
           </text>
         </svg></motion.p>
-        <div className="relative h-[400px] w-[600px] ">
+        <div className="relative h-[200px] w-[320px] ">
           <Image src={'/extra/logo-car.png'} alt="food" fill className="object-cover " />
         </div>
       <motion.p 
@@ -178,7 +193,7 @@ const LandingFirst = () => {
                         transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
                     >
         {/* Second Line */}
-        <svg viewBox="0 0 1000 300" className="w-full max-w-[1000px] ml-5">
+        <svg viewBox="0 0 1000 300" className="w-full max-w-[1000px] ml-5 relative bottom-10">
           <defs>
             <path id="curve2" ref={path2Ref} />
             {/* Text Shadow */}
