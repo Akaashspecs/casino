@@ -7,6 +7,7 @@ import { Great_Vibes } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { MdBalcony } from "react-icons/md";
 import { 
     FaCheck, 
     FaWifi, 
@@ -19,9 +20,16 @@ import {
     FaCoffee, 
     FaWater, 
     FaBaby, 
-    FaPaw 
+    FaPaw,
+    FaConciergeBell,
+    FaHiking,
+    FaInfoCircle,
+    FaLanguage,
+    FaShieldAlt,
+    FaSun,
+    FaTv
 } from "react-icons/fa";
-import { MdBalcony } from "react-icons/md";
+import ContactForm from "../components/ContactForm";
 
 const greatVibes = Great_Vibes({
     weight: "400",
@@ -127,23 +135,77 @@ const Hotel = () => {
         { scope: containerRef }
     );
 
-    const includedServices = [
-        { name: "Wi-Fi", icon: <FaWifi /> },
-        { name: "Piscina scoperta", icon: <FaSwimmingPool /> },
-        { name: "Parcheggio", icon: <FaParking /> },
-        { name: "Ristorante", icon: <FaUtensils /> },
-        { name: "Camere per le famiglie", icon: <FaChild /> },
-        { name: "Camere per i disabili", icon: <FaWheelchair /> },
-        { name: "Vista montagna", icon: <FaMountain /> },
-    ];
-
-    const extraServices = [
-        { name: "Balcone", icon: <MdBalcony /> },
-        { name: "Colazione", icon: <FaCoffee /> },
-        { name: "Parcheggio privato", icon: <FaParking /> },
-        { name: "Vista Lago", icon: <FaWater /> },
-        { name: "Culla", icon: <FaBaby /> },
-        { name: "Animali ammessi", icon: <FaPaw /> },
+    const facilities = [
+        {
+            category: "Most popular facilities",
+            icon: <FaWifi className="text-amber-500" />,
+            items: ["Free WiFi", "Restaurant", "Non-smoking rooms", "Family rooms", "Free parking", "Breakfast"]
+        },
+        {
+            category: "Bathroom",
+            icon: <FaWater className="text-blue-400" />,
+            items: ["Toilet paper", "Towels", "Bidet", "Private bathroom", "Hairdryer", "Shower"]
+        },
+        {
+            category: "Bedroom",
+            icon: <MdBalcony className="text-stone-500" />,
+            items: ["Wardrobe or closet", "Alarm clock", "Linens"]
+        },
+        {
+            category: "View",
+            icon: <FaMountain className="text-green-600" />,
+            items: ["Mountain view"]
+        },
+        {
+            category: "Outdoors",
+            icon: <FaSun className="text-yellow-500" />,
+            items: ["Sun terrace", "Terrace", "Garden"]
+        },
+        {
+             category: "Activities",
+             icon: <FaHiking className="text-stone-600" />,
+             items: ["Bicycle rental (Additional charge)", "Cooking class (Additional charge)", "Themed dinner nights", "Cycling", "Hiking"]
+        },
+        {
+             category: "Media & Technology",
+             icon: <FaTv className="text-gray-600" />,
+             items: ["Flat-screen TV", "Radio"]
+        },
+        {
+             category: "Food & Drink",
+             icon: <FaUtensils className="text-amber-600" />,
+             items: ["Wine/champagne", "Kid meals", "Special diet menus (on request)", "Minibar", "Restaurant"]
+        },
+         {
+             category: "Internet",
+             icon: <FaWifi className="text-amber-500" />,
+             items: ["WiFi is available in all areas and is free of charge."]
+        },
+        {
+             category: "Parking",
+             icon: <FaParking className="text-blue-600" />,
+             items: ["Free public parking is possible on site (reservation is not needed)."]
+        },
+        {
+             category: "Services",
+             icon: <FaConciergeBell className="text-stone-600" />,
+             items: ["Shuttle service (Additional charge)", "Shared lounge/TV area", "Luggage storage", "Invoice provided"]
+        },
+        {
+             category: "Safety & security",
+             icon: <FaShieldAlt className="text-green-600" />,
+             items: ["Safety deposit box", "Fire extinguishers"]
+        },
+         {
+             category: "General",
+             icon: <FaInfoCircle className="text-gray-500" />,
+             items: ["Heating", "Family rooms", "Non-smoking rooms", "Tile/marble floor", "Private entrance"]
+        },
+        {
+            category: "Languages spoken",
+            icon: <FaLanguage className="text-indigo-500" />,
+            items: ["German", "English", "Italian"]
+        }
     ];
 
     return (
@@ -158,19 +220,17 @@ const Hotel = () => {
                 </h1>
                 <div ref={introTextRef} className="text-lg md:text-xl text-gray-600 leading-relaxed font-light space-y-6">
                     <p>
-                  
-La Country House 'U Casino è immersa nella natura e vi invita a rilassarvi dopo una giornata intensa.
+                        La Country House 'U Casino è immersa nella natura e vi invita a rilassarvi dopo una giornata intensa.
                     </p>
                     <p>
                         Offriamo un’accoglienza attenta e personalizzata, con la massima cura per ogni dettaglio.
-
-All’arrivo, gli ospiti vengono accolti con un welcome drink, per iniziare subito l’esperienza nel modo migliore.
+                        All’arrivo, gli ospiti vengono accolti con un welcome drink, per iniziare subito l’esperienza nel modo migliore.
                     </p>
                     <p className="italic font-medium text-gray-800">
                         "Un soggiorno ideale per chi cerca tranquillità, comfort e un contatto autentico con l’ambiente naturale."
                     </p>
                 </div>
-                <div className="w-24 h-[1px] bg-gray-300 mx-auto mt-12"></div>
+                <div className="w-24 h-px bg-gray-300 mx-auto mt-12"></div>
             </header>
 
             {/* Rooms Section */}
@@ -229,59 +289,37 @@ All’arrivo, gli ospiti vengono accolti con un welcome drink, per iniziare subi
             </a>
             </div>
             
-
-             {/* Services Section */}
-            <section className="max-w-6xl mx-auto">
+             {/* Facilities Section */}
+            <section className="max-w-7xl mx-auto mt-32">
                 <h2
                     ref={servicesTitleRef}
-                    className={`${greatVibes.className} mt-32 text-6xl md:text-7xl text-center mb-16 text-gray-800`}
+                    className={`${greatVibes.className} text-6xl md:text-7xl text-center mb-16 text-gray-800`}
                 >
-                    Servizi
+                    Servizi e Strutture
                 </h2>
                 
-                <div ref={servicesGridRef} className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {/* Included Services */}
-                    <div className="bg-gray-50 p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <h4 className="text-2xl font-serif font-bold mb-8 text-gray-900 flex items-center">
-                            <span className="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mr-4 text-sm">
-                                <FaCheck />
-                            </span>
-                            Inclusi
-                        </h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2">
-                            {includedServices.map((service, idx) => (
-                                <li key={idx} className="flex items-center text-gray-700 group">
-                                    <span className="text-xl mr-3 text-gray-400 group-hover:text-amber-500 transition-colors">
-                                        {service.icon}
-                                    </span>
-                                    <span className="text-sm font-medium">{service.name}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Extra Services */}
-                     <div className="bg-gray-50 p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <h4 className="text-2xl font-serif font-bold mb-8 text-gray-900 flex items-center">
-                             <span className="w-10 h-10 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mr-4 text-sm">
-                                +
-                            </span>
-                            Con supplemento
-                        </h4>
-                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2">
-                            {extraServices.map((service, idx) => (
-                                <li key={idx} className="flex items-center text-gray-700 group">
-                                    <span className="text-xl mr-3 text-gray-400 group-hover:text-amber-500 transition-colors">
-                                        {service.icon}
-                                    </span>
-                                    <span className="text-sm font-medium">{service.name}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                   
+                <div ref={servicesGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {facilities.map((fac, idx) => (
+                        <div key={idx} className="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div className="flex items-center mb-4">
+                                <span className="text-2xl mr-3">{fac.icon}</span>
+                                <h4 className="text-lg font-serif font-bold text-gray-900">{fac.category}</h4>
+                            </div>
+                            <ul className="space-y-2">
+                                {fac.items.map((item, i) => (
+                                    <li key={i} className="flex items-start text-sm text-gray-600">
+                                        <span className="mr-2 mt-1 text-green-500 min-w-[12px]">
+                                            <FaCheck size={10} />
+                                        </span>
+                                        <span className="leading-tight">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </section>
+          
         </div>
     );
 };

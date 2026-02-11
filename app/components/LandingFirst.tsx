@@ -1,4 +1,4 @@
-"use client";
+
 
 "use client";
 
@@ -15,12 +15,15 @@ const greatVibes = Dancing_Script({
     subsets: ["latin"],
 });
 
-const LandingFirst = () => {
+function LandingFirst() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const path1Ref = useRef<SVGPathElement>(null);
   const path2Ref = useRef<SVGPathElement>(null);
   const text1Ref = useRef<SVGTextElement>(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useGSAP(
     () => {
@@ -31,14 +34,22 @@ const LandingFirst = () => {
       const frameCount = 90;
       const currentFrame = { index: 1 };
       const images: HTMLImageElement[] = [];
+      let loadedCount = 0;
+
+      const onImageLoad = () => {
+        loadedCount++;
+        setProgress(Math.round((loadedCount / frameCount) * 100));
+        if (loadedCount === frameCount) {
+          setIsLoading(false);
+          render(); // Render first frame immediately when done
+        }
+      };
 
       // Preload images
       for (let i = 1; i <= frameCount; i++) {
-      const img = new window.Image();
-
-        img.src = `/hotel-images/ezgif-frame-${i
-          .toString()
-          .padStart(3, "0")}.jpg`;
+        const img = new window.Image();
+        img.src = `/hotel-images/ezgif-frame-${i.toString().padStart(3, "0")}.jpg`;
+        img.onload = onImageLoad;
         images.push(img);
       }
 
@@ -48,7 +59,6 @@ const LandingFirst = () => {
           canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
 
-          // Object-cover logic for canvas
           const hRatio = canvas.width / img.width;
           const vRatio = canvas.height / img.height;
           const ratio = Math.max(hRatio, vRatio);
@@ -56,7 +66,6 @@ const LandingFirst = () => {
           const centerShift_y = (canvas.height - img.height * ratio) / 2;
 
           context.clearRect(0, 0, canvas.width, canvas.height);
-          // Draw image
           context.drawImage(
             img,
             0,
@@ -68,43 +77,35 @@ const LandingFirst = () => {
             img.width * ratio,
             img.height * ratio
           );
-          
-          // Apply filters manually since canvas doesn't support CSS filters inside drawImage
-          // Instead we rely on the CSS class on canvas for blur/brightness
         }
       };
-
-      // Ensure first image loads and renders
-      images[0].onload = render;
 
       // Scroll timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=200%", // Adjust scroll length for speed
+          end: "+=200%",
           scrub: true,
           pin: true,
-          onUpdate: render, // Redraw on resize/scroll
+          onUpdate: render,
         },
       });
 
-      // Animate frame index
       tl.to(currentFrame, {
         index: frameCount,
         ease: "none",
         onUpdate: render,
       });
 
-    
     },
     { scope: containerRef }
   );
 
   useEffect(() => {
-    // Initial SVG Paths
-    const curvePath = "M 50 200 Q 500 50 850 200";
-    const curvePath2 = "M 50 200 Q 500 350 850 200";
+    // Adjusted curve for better responsiveness and fit
+    const curvePath = "M 50 200 Q 600 50 1150 200";
+    const curvePath2 = "M 50 200 Q 600 350 1150 200";
 
     if (path1Ref.current) path1Ref.current.setAttribute("d", curvePath);
     if (path2Ref.current) path2Ref.current.setAttribute("d", curvePath2);
@@ -113,122 +114,99 @@ const LandingFirst = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden "
+      className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-white"
     >
+      {/* Loading Screen */}
+      {isLoading && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center  bg-radial  from-transparent to-amber-100/40 text-white">
+          <div className="text-2xl font-light tracking-widest mb-4">LOADING</div>
+          <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-amber-500"
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              transition={{ ease: "linear" }}
+            />
+          </div>
+          <div className="mt-2 text-sm text-gray-400">{progress}%</div>
+        </div>
+      )}
+
       {/* Canvas for Image Sequence */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-0 w-full h-full object-cover blur-[8px] brightness-[0.7] scale-[1.1] saturate-150"
+        className={`absolute inset-0 z-0 w-full h-fit object-cover blur-[8px] brightness-[0.7] scale-[1.1] saturate-150 transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
       />
 
-      {/* Static Logo Overlay */}
-    
+      {/* Content Overlay */}
+      <div className={`relative z-10 w-full max-w-[1400px] flex flex-col items-center justify-center -space-y-10 transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        
+        {/* First Line: Country House */}
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+           className="w-full"
+        >
+             <svg viewBox="0 0 1200 300" className="w-full h-fit overflow-visible">
+               <defs>
+                 <path id="curve1" ref={path1Ref} />
+                  <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+                   <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="black" floodOpacity="0.5" />
+                 </filter>
+               </defs>
+               <text
+                 ref={text1Ref}
+                 width="1200"
+                 className={`${greatVibes.className} text-[100px] md:text-[110px] xl:text-[140px] font-bold fill-white italic`}
+                 textAnchor="middle"
+                 filter="url(#textShadow)"
+               >
+                 <textPath href="#curve1" startOffset="50%">
+                    <tspan>Country</tspan>
+                    <tspan dx="40">House</tspan> {/* Reduced gap */}
+                 </textPath>
+               </text>
+             </svg>
+        </motion.div>
 
-      {/* <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white pb-20 pointer-events-none">
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                    className="flex flex-col items-center"
-                >
-                    <motion.h1 
-                        className="text-5xl md:text-8xl font-serif tracking-in-expand italic font-light"
-                        initial={{ opacity: 0, scale: 0.9, letterSpacing: "-0.05em" }}
-                        animate={{ opacity: 1, scale: 1, letterSpacing: "0em" }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                    >
-                        Hotel Caroline
-                    </motion.h1>
-                
-                     
-                </motion.div>
-            </div> */}
-      <div className="relative z-10  max-w-[2000px] flex flex-col items-center justify-center -space-y-10  rounded-2xl w-fit">
-       
-       
-           <motion.p 
-                        className="mt-6 text-lg md:text-2xl font-light tracking-widest uppercase opacity-80"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 0.8, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-                    >
-        <svg viewBox="0 0 1000 300" className="w-full h-auto overflow-visible ml-5">
-          <defs>
-            <path id="curve1" ref={path1Ref} />
-             <filter
-              id="textShadow"
-              x="-50%"
-              y="-50%"
-              width="200%"
-              height="200%"
-            >
-              <feDropShadow
-                dx="0"
-                dy="6"
-                stdDeviation="8"
-                floodColor="black"
-                floodOpacity="0.5"
-              />
-            </filter>
-          </defs>
-          <text
-            ref={text1Ref}
-            width="1000"
-            className={`${greatVibes.className}  text-[140px] font-bold fill-white italic`}
-            textAnchor="middle"
-          >
-            <textPath href="#curve1" startOffset="50%">
-          <tspan>Country</tspan>
-    <tspan dx="140">House</tspan>
-            </textPath>
-          </text>
-        </svg></motion.p>
-        <div className="relative h-[200px] w-[320px] ">
-          <Image src={'/extra/logo-car.png'} alt="food" fill className="object-cover " />
-        </div>
-      <motion.p 
-                        className="mt-6 text-lg md:text-2xl font-light tracking-widest uppercase opacity-80"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 0.8, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-                    >
-        {/* Second Line */}
-        <svg viewBox="0 0 1000 300" className="w-full max-w-[1000px] ml-5 relative bottom-10">
-          <defs>
-            <path id="curve2" ref={path2Ref} />
-            {/* Text Shadow */}
-            <filter
-              id="textShadow"
-              x="-50%"
-              y="-50%"
-              width="200%"
-              height="200%"
-            >
-              <feDropShadow
-                dx="0"
-                dy="6"
-                stdDeviation="8"
-                floodColor="black"
-                floodOpacity="0.5"
-              />
-            </filter>
-          </defs>
+        {/* Center Logo/Icon */}
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={!isLoading ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="relative h-[150px] w-[240px] md:h-[200px] md:w-[320px] lg:h-[250px] xl:w-[370px] z-20"
+        >
+          <Image src={'/extra/logo-car.png'} alt="logo" fill className="object-contain" priority />
+        </motion.div>
 
-          <text
-            textAnchor="middle"
-            filter="url(#textShadow)"
-            className={`${greatVibes.className} fill-white text-[100px] italic`}
-          >
-            <textPath href="#curve2" startOffset="50%">
-              <tspan>U</tspan>
-    <tspan dx="190">Casino</tspan>
-            </textPath>
-          </text>
-        </svg>
-        </motion.p>
+        {/* Second Line: 'U Casino */}
+        <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
+            className="w-full relative bottom-10 md:bottom-16 mt-5 md:mt-0"
+        >
+            <svg viewBox="0 0 1200 300" className="w-full h-auto overflow-visible">
+              <defs>
+                <path id="curve2" ref={path2Ref} />
+              </defs>
+              <text
+                textAnchor="middle"
+                filter="url(#textShadow)"
+                className={`${greatVibes.className} fill-white text-[80px] md:text-[120px]  italic`}
+              >
+                <textPath href="#curve2" startOffset="50%">
+                  <tspan>'U</tspan>
+                  <tspan dx="40">Casino</tspan>
+                </textPath>
+              </text>
+            </svg>
+        </motion.div>
+
       </div>
     </div>
   );
-};
+}
 
 export default LandingFirst;

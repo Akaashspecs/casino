@@ -2,40 +2,33 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
+  
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-                     ${isScrolled ? "bg-black/30 backdrop-blur-3xl border-b border-white/10" : "bg-transparent border-b border-transparent"}
+                     bg-black/30 backdrop-blur-3xl border-b border-white/10
                 `}
         >
             <div className="container mx-auto px-6 flex items-center justify-between pointer-events-auto relative">
                 <Link href="/">
                     <Image
-    src="/hotel/hotel-logo.png"
+    src="/extra/color-logo.png"
     alt="Hotel"
     width={260}          // required for Next Image
     height={260}
     className="
       w-24 md:w-32 lg:w-40
       h-auto
-      pb-4
+      p-2
     "
     priority
   />

@@ -44,7 +44,8 @@ const About = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`${greatVibes.className} text-amber-600 text-5xl md:text-6xl mb-4`}
             >
-                Our Story
+               La nostra storia
+
             </motion.span>
             <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
@@ -53,8 +54,9 @@ const About = () => {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className={`${playfair.className} text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-900 leading-tight`}
             >
-                A Timeless Retreat <br />
-                <span className="italic text-stone-500">Amidst Nature's Embrace</span>
+           Un rifugio senza tempo
+ <br />
+                <span className="italic text-stone-500">Nel cuore della natura</span>
             </motion.h2>
         </div>
 
@@ -86,13 +88,12 @@ const About = () => {
                 className="max-w-lg mx-auto md:mr-auto text-center md:text-left"
             >
                 <h3 className={`${playfair.className} text-3xl text-amber-700 mb-6`}>
-                    Culinary Excellence
+                    Eccellenza culinaria
                 </h3>
                 <p className="text-stone-600 leading-relaxed text-lg mb-8 font-light">
-                    At <span className="text-amber-600 font-medium">Country House 'U Casino</span>, every meal is a celebration of taste. 
-                    Our chefs carefully select the finest local ingredients to craft dishes that honor tradition 
-                    while embracing modern sophistication. Indulge in flavors that linger in memory long after 
-                    the last bite.
+                  At <span className="text-amber-600 font-medium">Country House 'U Casino</span>, every meal is a celebration of taste. 
+                    I nostri chef selezionano attentamente i migliori ingredienti locali per creare piatti che onorano la tradizione 
+                    abbracciando la raffinatezza moderna. Lasciati tentare da sapori che rimangono nel cuore a lungo dopo l'ultimo boccone.
                 </p>
                 <div className="w-16 h-[1px] bg-amber-600/30 mx-auto md:mx-0" />
             </motion.div>
@@ -110,13 +111,13 @@ const About = () => {
                 className="max-w-lg mx-auto md:ml-auto text-center md:text-right order-2 md:order-1"
             >
                 <h3 className={`${playfair.className} text-3xl text-amber-700 mb-6`}>
-                    Serenity & Comfort
+                Un rifugio senza tempo
                 </h3>
                 <p className="text-stone-600 leading-relaxed text-lg mb-8 font-light">
-                    Escape the bustle of everyday life and immerse yourself in tranquility. 
-                    Our spaces are designed to be your sanctuary, blending rustic charm with 
-                    contemporary luxury. Whether you're here for a romantic getaway or a 
-                    rejuvenating retreat, find your peace with us.
+                    Fuggi dal trambusto della vita quotidiana e immergiti nella tranquillità. 
+                    I nostri spazi sono pensati per essere il tuo santuario, unendo fascino rustico e 
+                    lusso contemporaneo. Che tu sia qui per una fuga romantica o un ritiro rigenerante, 
+                    trova la tua pace con noi.
                 </p>
                  <div className="w-16 h-[1px] bg-amber-600/30 mx-auto md:ml-auto md:mr-0" />
             </motion.div>

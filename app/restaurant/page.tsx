@@ -163,14 +163,14 @@ const Restaurant = () => {
                  </div>
                  <div className="text-center md:text-left space-y-8 order-1 md:order-2">
                     <h2 className={`${greatVibes.className} text-5xl md:text-6xl text-blue-600`}>
-                        Bar e Aperitivi
+                    Cocktail analcolici e bevande
                     </h2>
                     <h3 className="text-2xl font-serif font-bold text-gray-900">
                         Un rituale di gusto
                     </h3>
                     <p className="text-gray-600 leading-loose text-lg font-light">
-                        Proponiamo un ricco buffet e una carta di cocktail originali, con Spritz unici e d'autore.
-                        Siamo a due passi dal lago, immersi nel verde, lontani dal caos ma vicini alla natura.
+                        Proponiamo un ricco buffet e una carta di mocktails originali, con Spritz unici e d'autore.
+                        Siamo a due passi dal montagne, immersi nel verde, lontani dal caos ma vicini alla natura.
                         Un luogo ideale per rilassarsi con i vostri cari, godersi un drink speciale e vivere un’atmosfera autentica.
                     </p>
                  </div>

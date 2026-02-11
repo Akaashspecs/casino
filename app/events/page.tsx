@@ -15,6 +15,8 @@ const greatVibes = Great_Vibes({
 
 gsap.registerPlugin(ScrollTrigger);
 
+import ContactForm from "../components/ContactForm";
+
 const Events = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -48,7 +50,7 @@ const Events = () => {
     return (
         <div ref={containerRef} className="mt-24 bg-neutral-50 min-h-screen pt-32 pb-20 px-6 md:px-12 text-black overflow-hidden intro-section">
             
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
                 {/* Left Side: Text Content */}
                 <div className="text-center lg:text-left space-y-8">
                     <h1
@@ -133,6 +135,10 @@ const Events = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Contact Form Section */}
+            <ContactForm />
+
         </div>
     );
 };  

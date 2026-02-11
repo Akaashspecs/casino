@@ -79,7 +79,7 @@ export default function MapSection() {
                     </h2>
                     <div className="h-1 w-20 bg-amber-400 mx-auto rounded-full mb-6"></div>
                     <p className="text-xl text-stone-500 font-light max-w-2xl mx-auto italic">
-                        "Where luxury meets the mountains."
+                        "Dove il lusso incontra la natura"
                     </p>
                 </div>
 
@@ -92,18 +92,24 @@ export default function MapSection() {
                         <div className="relative w-full h-[500px] bg-white p-4 rounded-sm shadow-2xl border border-stone-200">
                             <div className="w-full h-full overflow-hidden border border-stone-100 relative">
 
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2774.30304108759!2d8.889282999999999!3d45.945228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47842ca183a19b89%3A0xea3626305c659a5c!2sCaroline%20Hotel!5e0!3m2!1sen!2sin!4v1769428776925!5m2!1sen!2sin"    
-                                width="100%"
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.829134278262!2d15.026822099999999!3d40.2128636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133c020187dbea9d%3A0x3209248c64e024de!2sCountry%20House%20&#39;U%20Casino!5e0!3m2!1sen!2sin!4v1770841933917!5m2!1sen!2sin" 
+   width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
                                     allowFullScreen
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
                                     className="w-full h-full grayscale-[20%] hover:grayscale-0 transition-all duration-700"></iframe>
-             
+
+
+
+
+                                
                             </div>
                             <div className="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-xs font-serif text-stone-500 shadow-sm border border-stone-100 italic">
-                                Caroline Hotel, Dolomites
+                                Country House 'U Casino
                             </div>
                         </div>
                     </div>
@@ -123,8 +129,14 @@ export default function MapSection() {
                                     <span className="font-serif text-lg">Lunedì - Domenica</span>
                                 </div>
                                 <div className="flex justify-between items-center text-stone-600">
-                                    <span className="font-semibold text-sm tracking-widest uppercase text-stone-400">Ricevimento</span>
-                                    <span className="font-serif text-lg">07:00 - 22:00</span>
+                                    <span className="font-semibold text-sm tracking-widest uppercase text-stone-400">Orario di check-in 
+</span>
+                                    <span className="font-serif text-lg">14:00</span>
+                                </div>
+                                 <div className="flex justify-between items-center text-stone-600">
+                                    <span className="font-semibold text-sm tracking-widest uppercase text-stone-400">Orario di check-out
+</span>
+                                    <span className="font-serif text-lg">10:00</span>
                                 </div>
                            </div>
                         </div>
@@ -137,8 +149,8 @@ export default function MapSection() {
                            </div>
                            <ul className="grid grid-cols-2 gap-4">
                                 {[
-                                    "Bar Lounge", "Ristorante", "Animali Ammessi", 
-                                    "Aria Condizionata", "Parcheggio", "Piscina"
+                                  , "Ristorante", "Vista sulle montagne", 
+                                    "Serate con cene a tema", "Ciclismo", "Parcheggio gratuito"
                                 ].map((service, index) => (
                                     <li key={index} className="flex items-center space-x-3 text-stone-600">
                                         <span className="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
