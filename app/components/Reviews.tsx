@@ -102,8 +102,8 @@ export default function Reviews() {
       <div className="container mx-auto relative h-full flex flex-col items-center">
         
         <div className="text-center mb-12 relative z-10 pointer-events-none">
-          <h2 className="text-4xl md:text-5xl font-serif text-amber-900 mb-4">Guest Book</h2>
-          <p className="text-stone-500">Tap a card to read the experience</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-amber-900 mb-4 underline">Reviews</h2>
+          <p className="md:hidden text-stone-500">Tap a card to read the experience</p>
         </div>
 
         {/* The Stack Container (Mobile Only) */}

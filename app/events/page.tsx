@@ -111,7 +111,7 @@ const Events = () => {
                                     </div>
                                     <div className="text-left">
                                         <p className="text-xs text-gray-400 uppercase font-bold">Scrivici</p>
-                                        <p className="text-gray-900 font-medium">eventi@hotelcaroline.com</p>
+                                        <p className="text-gray-900 font-medium"> info@countryhouse-ucasino.it</p>
                                     </div>
                                 </a>
 
@@ -121,7 +121,7 @@ const Events = () => {
                                     </div>
                                     <div className="text-left">
                                         <p className="text-xs text-gray-400 uppercase font-bold">Chiamaci / WhatsApp</p>
-                                        <p className="text-gray-900 font-medium">+39-0332-1431105   </p>
+                                        <p className="text-gray-900 font-medium">+39-328-171-7861  </p>
                                     </div>
                                 </a>
                             </div>

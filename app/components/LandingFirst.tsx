@@ -9,6 +9,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Great_Vibes, Dancing_Script } from "next/font/google";
 import { useGSAP } from "@gsap/react";
+import { FaAngleDown } from "react-icons/fa";
+
+
 
 const greatVibes = Dancing_Script({
     weight: "700",
@@ -135,7 +138,7 @@ function LandingFirst() {
       {/* Canvas for Image Sequence */}
       <canvas
         ref={canvasRef}
-        className={`absolute inset-0 z-0 w-full h-fit object-cover blur-[8px] brightness-[0.7] scale-[1.1] saturate-150 transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        className={`absolute inset-0 z-0 w-full h-fit object-cover blur-[4px] md:blur-[8px] brightness-[0.7] scale-[1.1] saturate-150 transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
       />
 
       {/* Content Overlay */}
@@ -146,7 +149,7 @@ function LandingFirst() {
            initial={{ opacity: 0, y: 20 }}
            animate={!isLoading ? { opacity: 1, y: 0 } : {}}
            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-           className="w-full"
+           className="w-full lg:relative lg:top-24 xl:top-28   2xl:top-16 "
         >
              <svg viewBox="0 0 1200 300" className="w-full h-fit overflow-visible">
                <defs>
@@ -158,7 +161,7 @@ function LandingFirst() {
                <text
                  ref={text1Ref}
                  width="1200"
-                 className={`${greatVibes.className} text-[100px] md:text-[110px] xl:text-[140px] font-bold fill-white italic`}
+                 className={`${greatVibes.className} text-[120px] md:text-[100px] lg:text-[110px] xl:text-[120px] 2xl:text-[120px] font-bold fill-white italic`}
                  textAnchor="middle"
                  filter="url(#textShadow)"
                >
@@ -175,7 +178,7 @@ function LandingFirst() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={!isLoading ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="relative h-[150px] w-[240px] md:h-[200px] md:w-[320px] lg:h-[250px] xl:w-[370px] z-20"
+            className="relative h-[150px] w-[240px] md:h-[180px] md:w-[280px] lg:h-[220px] lg:w-[320px] xl:h-[240px] xl:w-[350px] 2xl:h-[300px] 2xl:w-[450px] z-20"
         >
           <Image src={'/extra/logo-car.png'} alt="logo" fill className="object-contain" priority />
         </motion.div>
@@ -185,7 +188,7 @@ function LandingFirst() {
             initial={{ opacity: 0, y: -20 }}
             animate={!isLoading ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-            className="w-full relative bottom-10 md:bottom-16 mt-5 md:mt-0"
+            className="w-full relative bottom-10 md:bottom-16 mt-5 md:mt-0 lg:bottom-36"
         >
             <svg viewBox="0 0 1200 300" className="w-full h-auto overflow-visible">
               <defs>
@@ -194,7 +197,7 @@ function LandingFirst() {
               <text
                 textAnchor="middle"
                 filter="url(#textShadow)"
-                className={`${greatVibes.className} fill-white text-[80px] md:text-[120px]  italic`}
+                className={`${greatVibes.className} fill-white text-[120px] md:text-[90px] lg:text-[10s0px] xl:text-[100px] 2xl:text-[120px] italic`}
               >
                 <textPath href="#curve2" startOffset="50%">
                   <tspan>'U</tspan>
@@ -204,6 +207,9 @@ function LandingFirst() {
             </svg>
         </motion.div>
 
+      </div>
+      <div className=" absolute  px-3 rounded-sm bottom-10 left-1/2 transform -translate-x-1/2 text-stone-50 text-2xl ">
+       <FaAngleDown />
       </div>
     </div>
   );

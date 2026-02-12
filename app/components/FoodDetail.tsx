@@ -56,7 +56,14 @@ const FoodDetail = () => {
                     src="/extra/foodcollage.png"
                     alt="Food Collage Background"
                     fill
-                    className="object-cover brightness-75  pointer-events-none"
+                    className="object-cover brightness-75 hidden md:block  pointer-events-none"
+                    priority
+                />
+                 <Image
+                    src="/extra/heart.jpg"
+                    alt="Food Collage Background"
+                    fill
+                    className="object-cover brightness-75 md:hidden  pointer-events-none"
                     priority
                 />
                  <div className="absolute inset-0 bg-black/40 mix-blend-overlay" />

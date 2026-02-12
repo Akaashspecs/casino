@@ -69,9 +69,9 @@ const About = () => {
                 className="relative aspect-[4/5] w-full max-w-md mx-auto md:ml-auto group"
             >
                 <div className="absolute inset-0 border border-amber-600/20 transform translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
-                <div className="relative h-full w-full overflow-hidden shadow-xl">
+                <div className="relative h-full w-full overflow-hidden ">
                     <Image
-                        src="/extra/food-cutt.png"
+                        src="/extra/food-cutt-modified.png"
                         alt="Exquisite Culinary Experience"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -128,7 +128,7 @@ const About = () => {
                 className="relative aspect-[4/5] w-full max-w-md mx-auto md:mr-auto order-1 md:order-2 group"
             >
                 <div className="absolute inset-0 border border-amber-600/20 transform -translate-x-4 translate-y-4 transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2" />
-                <div className="relative h-full w-full overflow-hidden shadow-xl">
+                <div className="relative h-full w-full overflow-hidden ">
                     <Image
                         src="/extra/cc.png"
                         alt="Serene Atmosphere"

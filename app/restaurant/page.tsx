@@ -119,12 +119,7 @@ const Restaurant = () => {
                 <div className="w-24 h-[1px] bg-gray-300 mx-auto mt-12"></div>
             </div>
 
-<div className="flex justify-center">
- <a  target="_blank"
-  rel="noopener noreferrer" href="https://reservations-guest.teamsystem.cloud/bitcoinhotelcaroline" className="mt-10 bg-blue-400 px-6 py-2 rounded-full  text-white hover:scale-105 transition-colors">
-                Prenota Online
-            </a>
-</div>
+
 
             {/* Restaurant Section (Image Right) */}
             <section ref={restoSectionRef} className="max-w-7xl mx-auto px-6 md:px-12 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -143,7 +138,7 @@ const Restaurant = () => {
                  </div>
                  <div className="relative h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-all duration-700">
                      <Image 
-                        src="/gallery/food.jpeg" 
+                        src="/extra/bread.jpg" 
                         alt="Restaurant Dish" 
                         fill 
                         className="object-cover"
@@ -155,7 +150,7 @@ const Restaurant = () => {
             <section ref={barSectionRef} className="max-w-7xl mx-auto px-6 md:px-12 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                  <div className="relative h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl -rotate-2 hover:rotate-0 transition-all duration-700 order-2 md:order-1">
                      <Image 
-                        src="/gallery/cake.webp" 
+                        src="/extra/food-table.jpg" 
                         alt="Bar Cocktails" 
                         fill 
                         className="object-cover"

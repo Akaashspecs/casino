@@ -26,7 +26,7 @@ export default function Header() {
     width={260}          // required for Next Image
     height={260}
     className="
-      w-24 md:w-32 lg:w-40
+      w-24 md:w-32 lg:w-32 xl:w-40
       h-auto
       p-2
     "

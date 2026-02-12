@@ -11,9 +11,9 @@ export default function Footer() {
                     <div className="flex flex-col items-center md:items-start space-y-4">
                         <h3 className="text-xl font-bold uppercase tracking-wider">Address</h3>
                         <p className="text-gray-400 text-center md:text-left">
-                            Hotel Caroline <br />
-                            Via Dolomites, 12 <br />
-                            39046 Ortisei (BZ), Italy
+                            Country House 'U Casino <br />
+                          Via Sala, 84070  <br />
+                           San Mauro Cilento SA, Italy
                         </p>
                     </div>
 
@@ -21,8 +21,8 @@ export default function Footer() {
                     <div className="flex flex-col items-center md:items-start space-y-4">
                         <h3 className="text-xl font-bold uppercase tracking-wider">Contact Us</h3>
                         <p className="text-gray-400 text-center md:text-left">
-                            <span className="block">Phone: +39-0332-1431105<br/>+39-0332-1582654<br/>+39-0332-315731 </span>
-                            <span className="block">Email: info@carolinehotel.it</span>
+                            <span className="block">Phone: +39-328-171-7861</span>
+                            <span className="block">Email: info@countryhouse-ucasino.it</span>
                         </p>
                     </div>
 
@@ -31,15 +31,15 @@ export default function Footer() {
                         <h3 className="text-xl font-bold uppercase tracking-wider">Follow Us</h3>
                         <div className="flex space-x-6">
                             <a target="_blank"
-  rel="noopener noreferrer" href="https://www.instagram.com/caroline.hotel/" className="text-gray-200 hover:text-purple-400 transition-colors text-2xl">
+  rel="noopener noreferrer" href="https://www.instagram.com/countryhouseucasino/?hl=en" className="text-gray-200 hover:text-purple-400 transition-colors text-2xl">
                                 <FaInstagram />
                             </a>
                             <a target="_blank"
-  rel="noopener noreferrer" href="https://www.facebook.com/people/Caroline-Hotel/100093935411280/" className="text-gray-200 hover:text-blue-400 transition-colors text-2xl">
+  rel="noopener noreferrer" href="https://www.facebook.com/countryhouseucasino/" className="text-gray-200 hover:text-blue-400 transition-colors text-2xl">
                                 <FaFacebookF />
                             </a>
                             <a  target="_blank"
-  rel="noopener noreferrer" href="https://www.tripadvisor.it/Hotel_Review-g1972443-d1230404-Reviews-Caroline_Hotel_Brusimpiano-Brusimpiano_Province_of_Varese_Lombardy.html" className="text-gray-200 hover:text-green-400 transition-colors text-2xl">
+  rel="noopener noreferrer" href="https://www.tripadvisor.com/Hotel_Review-g1849715-d6536436-Reviews-Country_House_U_Casino-San_Mauro_Cilento_Cilento_and_Vallo_di_Diano_National_Park_Pro.html" className="text-gray-200 hover:text-green-400 transition-colors text-2xl">
                                 <FaTripadvisor />
                             </a>
                         </div>
